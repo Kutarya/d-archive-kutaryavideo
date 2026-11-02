@@ -1,0 +1,13 @@
+const { spawnSync } = require('node:child_process');
+const fs = require('node:fs');
+const path = require('node:path');
+const version = require('../package.json').version;
+const published = path.join('D:/Kutarya/KutaryaWeb/artifacts/kutarya-video', version, 'production-upload.json');
+if (fs.existsSync(published)) throw new Error(`${version} yayımlanmış ve sabittir. Değişiklik için önce yeni bir sürüm numarası seç.`);
+const own = path.resolve('node_modules');
+const shared = 'D:/KutaryaJenerikYeni/kaynak/node_modules';
+const modules = fs.existsSync(path.join(own, 'electron-builder/cli.js')) ? own : shared;
+const args = [path.join(modules, 'electron-builder/cli.js'), '--win', 'portable', 'nsis', '--x64', `-c.electronDist=${path.join(modules, 'electron/dist')}`];
+const run = spawnSync(process.execPath, args, { stdio: 'inherit', windowsHide: true, env: { ...process.env, ELECTRON_BUILDER_COMPRESSION_LEVEL: process.env.ELECTRON_BUILDER_COMPRESSION_LEVEL || '3' } });
+if (run.error) throw run.error;
+process.exitCode = run.status || 0;

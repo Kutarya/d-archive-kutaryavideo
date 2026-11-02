@@ -1,0 +1,38 @@
+KUTARYA VIDEO 1.1.0
+
+Kutarya-Video-Setup-1.1.0.exe: Windows 10/11 64 bit kullanıcı kurulumu.
+Kutarya-Video-Portable-1.1.0.exe: kurulumsuz sürüm.
+
+1. Video adı yazıp Video bul'a bas. Başlık ve kanala bakıp doğru videoda İndir'i seç.
+2. Veya doğrudan YouTube bağlantısını yapıştır; indirme kendiliğinden başlar.
+3. Kayıt klasörü satırındaki Değiştir'den videoların ineceği klasörü seç.
+4. Geçmiş sekmesindeki çöp simgesi tek kaydı; Geçmişi temizle bütün bitmiş
+   kayıtları kaldırır. Video dosyalarını silmez. Ana ekran eski kayıtları uzatmaz.
+5. Tema menüsünden Açık, Koyu, Canlı veya Sistem seç. Ayarlar yeniden açılışta durur.
+6. Her açılışta kutarya.com'daki sürüm kontrol edilir. Daha yeni sürüm varsa
+   bildirimdeki Siteden indir ile proje sayfasına git. Otomatik kurulum yapılmaz.
+
+TAŞINABİLİR
+EXE yazılabilir bir klasörde olsun. Varsayılan video yeri EXE yanındaki Videolar;
+geçmiş, ayarlar ve profil Veriler klasöründedir. Eski portable Veriler klasörünün
+yanında yeni EXE'yi açarsan kayıtlarını kullanır. Eski video dosyalarını taşımaz.
+
+KURULUM
+Yönetici izni istemez. Açık uygulama kendiliğinden kapatılmaz: kendin kapatıp
+Setup'ı tekrar çalıştır. Kurulum sonunda otomatik açılmaz. Varsayılan videolar
+İndirilenler/Kutarya Video/Videolar; veri AppData/Roaming/Kutarya Video içindedir.
+Yeni klasör seçimi sonraki eklenen videolara uygulanır; eski videolar eski yerde kalır.
+
+KABUL VE SINIRLAR
+22 çekirdek test ve gerçek portable içinde 30 işlev/arayüz kontrolü geçti.
+Gerçek YouTube isim araması doğrulandı. Bu bilgisayarın test ağında gerçek
+indirme YouTube HTTP 429/bot doğrulamasıyla engellendi; tamamlanmış indirme
+diye sayılmadı. Önceki 1.0.0'ın 1080p kabulü ayrı tarihsel kanıttır. Mevcut
+indirme motoru komut sözleşmesi aynı; özel/erişim kısıtlı video veya ağ sınırı sürer.
+Klasör seçicinin IPC/kalıcılık/iptal kabulü kontrollü seçici yanıtıyla yapıldı.
+Windows kurulum/kaldırma ve Windows bildirim teslimi ayrıca ölçülmedi.
+Paket kod imzalı değil; Windows yayıncı uyarısı gösterebilir.
+1.0.0 sürümünde uygulama sürümü bildirimi yok; önce 1.1.0'ı yüklemek gerekir.
+
+Kaynak: kaynak/electron ve kaynak/ui. Motorlar kaynak/vendor içindedir.
+Kabul: Kanitlar/; yayın: https://kutarya.com/proje/kutarya-video

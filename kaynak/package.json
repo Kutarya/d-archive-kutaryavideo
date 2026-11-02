@@ -1,0 +1,30 @@
+{
+  "name": "kutarya-video",
+  "version": "1.1.0",
+  "description": "Video adı yaz veya bağlantı yapıştır; seçtiğin klasöre indir.",
+  "author": "Kutarya",
+  "license": "MIT",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test tests/*.test.cjs",
+    "build": "node scripts/build.cjs",
+    "smoke": "node scripts/smoke.cjs"
+  },
+  "devDependencies": { "electron": "44.6.0", "electron-builder": "26.15.3" },
+  "build": {
+    "appId": "com.kutarya.video", "productName": "Kutarya Video", "executableName": "KutaryaVideo",
+    "directories": { "output": "../Paketler", "buildResources": "build" },
+    "files": ["electron/**/*", "ui/**/*", "package.json"],
+    "extraResources": [{ "from": "vendor", "to": "vendor", "filter": ["*.exe", "*.dll", "*.json", "licenses/**/*"] }],
+    "asar": true, "compression": "normal",
+    "win": { "icon": "ui/icon.png", "target": ["portable", "nsis"], "signExecutable": false },
+    "portable": { "artifactName": "Kutarya-Video-Portable-${version}.${ext}", "requestExecutionLevel": "user" },
+    "nsis": {
+      "artifactName": "Kutarya-Video-Setup-${version}.${ext}", "oneClick": true,
+      "perMachine": false, "allowElevation": false, "runAfterFinish": false,
+      "deleteAppDataOnUninstall": false, "createDesktopShortcut": true,
+      "createStartMenuShortcut": true, "language": "1055", "include": "build/install-safe.nsh"
+    }
+  }
+}

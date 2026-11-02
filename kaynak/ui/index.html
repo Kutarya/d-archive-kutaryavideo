@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="tr" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://i.ytimg.com; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>Kutarya Video</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <svg class="svg-defs" aria-hidden="true"><defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7V4h7l2 3h9v13H3Z"/></symbol>
+    <symbol id="i-paste" viewBox="0 0 24 24"><path d="M9 5H5v16h14V5h-4M9 3h6v4H9Z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15M10 10v7m4-7v7"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 4 12 8-12 8Z"/></symbol>
+    <symbol id="i-theme" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9 9 9 0 0 0-9-9Z"/><path d="M12 3v18"/></symbol>
+  </defs></svg>
+  <div class="titlebar"><span>KUTARYA VIDEO</span><div class="window-controls"><button id="minimize" aria-label="Simge durumuna küçült">−</button><button id="maximize" aria-label="Pencere boyutunu değiştir">□</button><button id="close" aria-label="Kapat">×</button></div></div>
+  <main class="app-shell">
+    <header class="app-header">
+      <div class="brand"><img src="icon.png" alt=""><div>Kutarya <strong>Video</strong><span>VİDEOLARIN, YANINDA.</span></div></div>
+      <div class="header-tools"><label class="theme-control" for="theme-select"><svg><use href="#i-theme"/></svg><span>Tema</span><select id="theme-select" aria-label="Tema"><option value="light">Açık</option><option value="dark">Koyu</option><option value="vivid">Canlı</option><option value="system">Sistem</option></select></label><span class="version" id="version-tag"></span></div>
+    </header>
+    <section class="update-banner" id="update-banner" role="status" hidden><div class="update-icon"><svg><use href="#i-arrow"/></svg></div><div><strong id="update-title"></strong><p>Yeni sürüm kutarya.com’da seni bekliyor.</p></div><button class="button primary" id="update-open">Siteden indir ↗</button><button class="icon-button" id="update-dismiss" aria-label="Sürüm bildirimini kapat"><svg><use href="#i-close"/></svg></button></section>
+    <section class="hero"><div><div class="eyebrow"><span class="live-dot"></span> YOUTUBE & SHORTS</div><h1>İsmini yaz.<br><span>Ya da linki yapıştır.</span></h1><p>Seçtiğin video, en iyi mevcut kalitede bilgisayarına insin.</p></div><div class="hero-art" aria-hidden="true"><span class="art-spark one">✦</span><div class="art-play"><svg><use href="#i-play"/></svg></div><div class="art-download"><svg><use href="#i-arrow"/></svg></div><span class="art-spark two">✦</span><span class="art-label">MP4 · OTOMATİK KALİTE</span></div></section>
+    <section class="input-section" aria-label="Video bul ve indir"><label class="input-label" for="url-input">Video adı veya YouTube bağlantısı</label><form id="download-form" class="composer"><div class="input-wrap"><svg id="input-icon"><use href="#i-search"/></svg><textarea id="url-input" rows="1" spellcheck="false" placeholder="Örn. Big Buck Bunny · veya youtube.com/…" aria-describedby="input-help"></textarea></div><button class="icon-button paste-button" type="button" id="paste-button" title="Panodan yapıştır" aria-label="Panodan yapıştır"><svg><use href="#i-paste"/></svg></button><button class="button primary submit-button" type="submit" id="submit-button"><span id="submit-label">Video bul</span><svg id="submit-icon"><use href="#i-search"/></svg></button></form><p class="input-help" id="input-help">Linki yapıştırınca indirme başlar. İsim yazınca sonuçlardan seç.</p></section>
+    <div class="folder-row"><div class="folder-icon"><svg><use href="#i-folder"/></svg></div><div class="folder-copy"><span>KAYIT KLASÖRÜ</span><strong id="save-path">Hazırlanıyor…</strong></div><button class="button subtle" id="choose-folder">Değiştir</button><button class="icon-button" id="open-folder" aria-label="Kayıt klasörünü aç" title="Klasörü aç"><svg><use href="#i-folder"/></svg></button></div><p class="directory-warning" id="directory-warning" hidden></p>
+    <section id="search-panel" class="search-panel" aria-label="Video arama sonuçları" hidden><div class="section-header"><div><h2 id="search-title">Arama sonuçları</h2><p id="search-description"></p></div><button class="button subtle" id="search-cancel">Aramayı iptal et</button></div><div class="search-loading" id="search-loading" role="status" hidden><span class="spinner"></span>Videolar aranıyor…</div><div id="search-results" class="search-results"></div><p id="search-empty" class="search-empty" hidden>Sonuç bulunamadı. Video adını veya kanal adını değiştirip yeniden dene.</p></section>
+    <section class="downloads" aria-label="İndirmeler ve geçmiş"><div class="section-header download-header"><div class="tabs" role="tablist" aria-label="İndirme görünümü"><button class="tab selected" data-view="downloads" id="tab-downloads" role="tab" aria-selected="true" aria-controls="job-panel"><svg><use href="#i-arrow"/></svg>İndirmeler <span id="active-count">0</span></button><button class="tab" data-view="history" id="tab-history" role="tab" aria-selected="false" aria-controls="job-panel"><svg><use href="#i-clock"/></svg>Geçmiş <span id="history-count">0</span></button></div><button class="text-button" id="clear-button" hidden><svg><use href="#i-trash"/></svg>Geçmişi temizle</button></div><p class="list-description" id="list-description"></p><div id="job-panel" role="tabpanel" aria-labelledby="tab-downloads"><div id="job-list"></div><div class="empty-state" id="empty-state"><div class="empty-icon"><svg><use href="#i-arrow"/></svg></div><div><h3>Bir video ile başlayalım.</h3><p>Yukarıya bir isim yaz veya bağlantı yapıştır.</p></div><span class="empty-spark" aria-hidden="true">✦</span></div><div class="pagination" id="pagination" hidden><button class="button subtle" id="previous-page">← Önceki</button><span id="page-info"></span><button class="button subtle" id="next-page">Sonraki →</button></div></div></section>
+    <footer><span id="engine-status"><span class="live-dot"></span>Hazır</span><button id="check-update" class="text-button">Sürüm kontrol ediliyor…</button></footer>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <dialog id="clear-dialog"><div class="dialog-head"><h2>Geçmiş temizlensin mi?</h2><button class="icon-button" id="clear-dialog-close" aria-label="Kapat"><svg><use href="#i-close"/></svg></button></div><p>Tamamlanan, başarısız ve iptal edilen kayıtlar kaldırılır. Video dosyaların ve devam eden indirmelerin korunur.</p><div class="dialog-actions"><button class="button subtle" id="clear-cancel">Vazgeç</button><button class="button primary" id="clear-confirm">Geçmişi temizle</button></div></dialog>
+  <dialog id="error-dialog"><div class="dialog-head"><h2>İndirme bilgisi</h2><button class="icon-button" id="dialog-close" aria-label="Kapat"><svg><use href="#i-close"/></svg></button></div><p id="error-summary"></p><pre id="error-detail"></pre></dialog>
+</body>
+</html>
